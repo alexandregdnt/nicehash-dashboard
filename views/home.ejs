@@ -1,0 +1,117 @@
+<%
+ /*
+ {
+    BTCBalance,
+    EURBalance,
+    BTCValue,
+    unpaidBalance,
+    profilProb,
+    EURAmountToReach,
+    missingBTCAmount,
+    missingEURAmount,
+    executedDate,
+    remainingDate,
+    remainingTime
+ }
+  */
+ %>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/public/css/style.css">
+  <!-- Scripts -->
+  <script src="/public/js/main.js" type="text/javascript"></script>
+
+  <title>Dashboard NiceHash</title>
+</head>
+<body>
+<header>
+  <h1>Dashboard NiceHash</h1>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 p-5 grey">
+        <div class="row">
+
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 green">
+              <h4>Montant actuel en EUR</h4>
+              <p><%= EURBalance.toFixed(2) %> €</p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 green">
+              <h4>Montant actuel en BTC</h4>
+              <p><%= BTCBalance.toFixed(8) %> BTC</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 blue">
+              <h4>Valeur du BTC actuelle en EUR</h4>
+              <p><%= BTCValue.toFixed(2) %> €</p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 blue">
+              <h4>BTC Génération en cours</h4>
+              <p><%= profilProb.toFixed(8) %> BTC</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 red">
+              <h4>EUR manquant</h4>
+              <p><%= missingEURAmount.toFixed(2) %> €</p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 red">
+              <h4>BTC manquant</h4>
+              <p><%= missingBTCAmount.toFixed(8) %> BTC</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 yellow">
+              <h4>Montant de l'objectif en EUR</h4>
+              <p><%= EURAmountToReach.toFixed(2) %> €</p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-2">
+            <div class="p-3 yellow">
+              <h4>Temps restant pour atteindre l'objectif</h4>
+              <% if (isNaN(remainingTime.day)) { %>
+                <p>∞ jour(s)</p>
+              <% } else { %>
+                <p><%= remainingTime.day %> jour(s), <%= remainingTime.hour %> heure(s) et <%= remainingTime.min %> minute(s)</p>
+              <% } %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="copyright">
+    <p>Made by <a href="https://github.com/arpolex">Arpolex</a> with ❤️️ !</p>
+  </div>
+</footer>
+
+</body>
+</html>

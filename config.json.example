@@ -1,0 +1,12 @@
+{
+  "apiHost": "https://api2.nicehash.com",
+  "apiKey": "",
+  "apiSecret": "",
+  "orgId": "",
+  "rig": "",
+
+  "amountToReach": 100.00,
+  "debugMode": false,
+
+  "dashboardPort": 80
+}
